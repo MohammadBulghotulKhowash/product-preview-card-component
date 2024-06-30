@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --font-secondary: "Fraunces", serif;
+  --main-background: hsl(30, 38%, 92%);
+  --white: hsl(0, 0%, 100%);
+  --primary-font-color: hsl(212, 21%, 14%);
+  --secondary-font-color: hsl(228, 12%, 48%);
+  --secondary-color: hsl(158, 36%, 37%);
+  --hover-color: hsl(157, 37%, 21%);
+}
+
+::before,
+::after,
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--main-background);
+  color: var(--primary-font-color);
+}
+
+.container {
+  padding: 5.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container .content {
+  display: grid;
+  grid-template-areas: "brand-preview description";
+  background-color: var(--white);
+  border-radius: 10px;
+}
+
+.brand-photo {
+  grid-area: brand-preview;
+}
+
+.brand-photo .img {
+  display: block;
+  width: 250px;
+  height: 375px;
+  background-image: url("../images/image-product-desktop.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 10px 0 0 10px;
+}
+
+.brand-description {
+  grid-area: description;
+  margin: 0 1.5rem;
+}
+
+.brand-description h5,
+.detail,
+.main-price {
+  color: var(--secondary-font-color);
+}
+
+.brand-description h5 {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+}
+
+.brand-description h1, .detail {
+  text-wrap: balance;
+}
+
+.brand-description h1 {
+  font-family: var(--font-secondary);
+  line-height: 1em;
+  font-weight: 700;
+}
+
+.brand-description .detail {
+  font-size: 13.5px;
+  line-height: 1.5em;
+}
+
+.brand-description .price {
+  display: flex;
+  align-items: center;
+  margin: 1.2rem 0;
+  gap: 1rem;
+}
+
+.brand-description .price .discount-price {
+  font-size: 2em;
+  font-weight: 700;
+  font-family: var(--font-secondary);
+  color: var(--secondary-color);
+}
+
+.brand-description .price .main-price {
+  font-weight: 500;
+  text-decoration: line-through;
+}
+
+.brand-description button {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 10px;
+  width: 220px;
+  height: 45px;
+  border: none;
+  gap: 10px;
+}
+
+.brand-description button:hover {
+  background-color: var(--hover-color);
+}
+
+.brand-description button img {
+  display: inline-block;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Mobile */
+@media screen and (max-width:575px) {
+  body::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+  }
+
+  .container .content {
+    grid-template-areas: 
+    "brand-preview"
+    "description";
+  }
+
+  .brand-photo .img {
+    background-image: url('../images/image-product-mobile.jpg');
+    background-size: contain;
+    margin-bottom: -2rem;
+    border-radius: 10px 10px 0 0;
+    width: 275.5px;
+    height: 210px;
+  }
+
+  .brand-description {
+    margin: 1.5rem .8rem;
+  }
+
+  .brand-description button {
+    width: 250px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width:576px) and (max-width:1950px) {
+  .container .content {
+    width: 518.5px;
+  }
+}
